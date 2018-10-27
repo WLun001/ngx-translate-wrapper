@@ -16,6 +16,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ngx-translate-wrapper": [
+        "dist/ngx-translate-wrapper"
+      ],
+      "ngx-translate-wrapper/*": [
+        "dist/ngx-translate-wrapper/*"
+      ]
+    }
   }
 }
