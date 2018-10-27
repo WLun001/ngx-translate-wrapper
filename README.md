@@ -85,4 +85,4 @@ This is a wrapper for [@ngx-translate](https://github.com/ngx-translate/core) li
 ```
 
 ### Other available parameters for Date, Number and Currency
-- Other available parameters are documented in source code, `./types.d.ts`
+- Other available parameters are documented in source code, [types.d.ts](https://github.com/WLun001/ngx-translate-wrapper/blob/master/projects/ngx-translate-wrapper-lib/src/lib/types.d.ts)
