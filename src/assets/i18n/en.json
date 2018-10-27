@@ -1,0 +1,3 @@
+{
+  "EXAMPLE_MESSAGE" : "Hello {{name}}, today is {{date}}, your current balance is {{balance}}, there is {{people}} in the queue"
+}
