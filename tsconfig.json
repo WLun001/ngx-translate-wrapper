@@ -23,6 +23,12 @@
       ],
       "ngx-translate-wrapper/*": [
         "dist/ngx-translate-wrapper/*"
+      ],
+      "ngx-translate-wrapper-lib": [
+        "dist/ngx-translate-wrapper-lib"
+      ],
+      "ngx-translate-wrapper-lib/*": [
+        "dist/ngx-translate-wrapper-lib/*"
       ]
     }
   }

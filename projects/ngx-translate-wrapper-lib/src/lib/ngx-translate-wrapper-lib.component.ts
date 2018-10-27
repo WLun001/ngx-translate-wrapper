@@ -6,7 +6,7 @@ import {formatCurrencyLocale, formatDateLocale, formatNumberLocale} from './form
 @Component({
   selector: 'i18n-ngx-wrapper',
   template: `
-    {{text}}
+    {{ text }}
   `,
   styles: []
 })
@@ -16,7 +16,7 @@ import {formatCurrencyLocale, formatDateLocale, formatNumberLocale} from './form
  * It can format text, date and currency according to locale.
  *
  */
-export class NgxTranslateWrapperComponent implements OnInit, OnChanges, TranslationStatus {
+export class NgxTranslateWrapperLibComponent implements OnInit, OnChanges, TranslationStatus {
   @Input('key') key: string;
   @Input('value') value: string;
   @Input('type') type: string;

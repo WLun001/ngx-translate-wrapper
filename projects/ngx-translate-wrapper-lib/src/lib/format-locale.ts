@@ -8,7 +8,9 @@ import {CurrencyFormat, DateFormat, NumberFormat} from './types';
  * @param format date specific format for localised
  */
 export function formatDateLocale(translate: TranslateService, value: string, format?: DateFormat) {
-  if (value == null || value === '' || value !== value) { return null; }
+  if (value == null || value === '' || value !== value) {
+    return null;
+  }
 
   if (format !== undefined) {
     return new Date(Number(value))
@@ -42,7 +44,9 @@ export function formatDateLocale(translate: TranslateService, value: string, for
  * @param currencyFormat currency specific format for localised
  */
 export function formatCurrencyLocale(translate: TranslateService, value: string, currencyFormat?: CurrencyFormat) {
-  if (value == null || value === '' || value !== value) { return null; }
+  if (value == null || value === '' || value !== value) {
+    return null;
+  }
 
   const lang: string = translate.getBrowserLang();
   if (currencyFormat === undefined) {
@@ -72,7 +76,9 @@ export function formatCurrencyLocale(translate: TranslateService, value: string,
  * @param numberFormat specific number format for localised
  */
 export function formatNumberLocale(translate: TranslateService, value: string, numberFormat?: NumberFormat) {
-  if (value == null || value === '' || value !== value) { return null; }
+  if (value == null || value === '' || value !== value) {
+    return null;
+  }
 
   const lang: string = translate.getBrowserLang();
   if (!numberFormat) {

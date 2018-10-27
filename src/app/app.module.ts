@@ -5,7 +5,7 @@ import {AppComponent} from './app.component';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {TranslateLoader, TranslateModule, TranslateService} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-import {NgxTranslateWrapperModule} from '../../projects/ngx-translate-wrapper/src/lib/ngx-translate-wrapper.module';
+import {NgxTranslateWrapperLibModule} from '../../projects/ngx-translate-wrapper-lib/src/lib/ngx-translate-wrapper-lib.module';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -25,7 +25,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         deps: [HttpClient]
       }
     }),
-    NgxTranslateWrapperModule
+    NgxTranslateWrapperLibModule
   ],
   providers: [TranslateService],
   bootstrap: [AppComponent]

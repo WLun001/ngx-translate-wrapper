@@ -130,33 +130,33 @@
         }
       }
     },
-    "NgxTranslateWrapper": {
-      "root": "projects/ngx-translate-wrapper",
-      "sourceRoot": "projects/ngx-translate-wrapper/src",
+    "NgxTranslateWrapperLib": {
+      "root": "projects/ngx-translate-wrapper-lib",
+      "sourceRoot": "projects/ngx-translate-wrapper-lib/src",
       "projectType": "library",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/ngx-translate-wrapper/tsconfig.lib.json",
-            "project": "projects/ngx-translate-wrapper/ng-package.json"
+            "tsConfig": "projects/ngx-translate-wrapper-lib/tsconfig.lib.json",
+            "project": "projects/ngx-translate-wrapper-lib/ng-package.json"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/ngx-translate-wrapper/src/test.ts",
-            "tsConfig": "projects/ngx-translate-wrapper/tsconfig.spec.json",
-            "karmaConfig": "projects/ngx-translate-wrapper/karma.conf.js"
+            "main": "projects/ngx-translate-wrapper-lib/src/test.ts",
+            "tsConfig": "projects/ngx-translate-wrapper-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-translate-wrapper-lib/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/ngx-translate-wrapper/tsconfig.lib.json",
-              "projects/ngx-translate-wrapper/tsconfig.spec.json"
+              "projects/ngx-translate-wrapper-lib/tsconfig.lib.json",
+              "projects/ngx-translate-wrapper-lib/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
