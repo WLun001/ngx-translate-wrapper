@@ -6,17 +6,17 @@ interface TranslationStatus {
 }
 
 export interface KeyValue {
-  key: string
-  value: string
+  key: string;
+  value: string;
 }
 
 export interface Options {
-  value: string
+  value: string;
   /**
    * possible values: 'currency', 'number', 'date'
    */
-  type?: string
-  format?: CurrencyFormat | NumberFormat | DateFormat
+  type?: string;
+  format?: CurrencyFormat | NumberFormat | DateFormat;
 }
 
 export interface CurrencyFormat {
@@ -25,7 +25,7 @@ export interface CurrencyFormat {
    * Possible values are the ISO 4217 currency codes
    * Full list can be found here https://www.currency-iso.org/en/home/tables/table-a1.html
    */
-  currency: string,
+  currency: string;
 
   /**
    * How to display the currency in currency formatting.
@@ -34,26 +34,26 @@ export interface CurrencyFormat {
    * 'code - use the ISO currency code
    * 'name' - localized currency name such as "dollar"
    */
-  currencyDisplay?: string
+  currencyDisplay?: string;
 
   /**
    *  Whether to use grouping separators, such as thousands separators or thousand/lakh/crore separators
    *  Possible value: true, false
    */
-  separators?: boolean
+  separators?: boolean;
 }
 
 export interface NumberFormat {
   /**
    * Possible values: 'decimal', 'percent'
    */
-  style?: string
+  style?: string;
 
   /**
    *  Whether to use grouping separators, such as thousands separators or thousand/lakh/crore separators
    *  Possible value: true, false
    */
-  separators?: boolean
+  separators?: boolean;
 }
 
 export interface DateFormat {
@@ -64,55 +64,55 @@ export interface DateFormat {
    * Implementations may also recognize the time zone names of the https://www.iana.org/time-zones time zone database,
    * such as "Asia/Shanghai", "Asia/Kolkata", "America/New_York".
    */
-  timeZone: string,
+  timeZone: string;
 
   /**
    * Default values: true
    */
-  hour12: boolean,
+  hour12: boolean;
 
   /**
    * Possible values are "narrow", "short", "long"
    */
-  weekday: string,
+  weekday: string;
 
   /**
    * Possible values are "narrow", "short", "long".
    */
-  era: string,
+  era: string;
 
   /**
    * Possible values are "numeric", "2-digit".
    */
-  year: string,
+  year: string;
 
   /**
    * Possible values are "numeric", "2-digit", "narrow", "short", "long".
    */
-  month: string,
+  month: string;
 
   /**
    * Possible values are "numeric", "2-digit".
    */
-  day: string,
+  day: string;
 
   /**
    *  Possible values are "numeric", "2-digit".
    */
-  hour: string,
+  hour: string;
 
   /**
    * Possible values are "numeric", "2-digit".
    */
-  minute: string
+  minute: string;
 
   /**
    * Possible values are "numeric", "2-digit".
    */
-  second: string,
+  second: string;
 
   /**
    * Possible values are "short", "long".
    */
-  timeZoneName: string
+  timeZoneName: string;
 }

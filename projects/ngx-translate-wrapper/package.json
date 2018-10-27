@@ -1,7 +1,6 @@
 {
   "name": "ngx-translate-wrapper",
   "version": "0.0.1",
-  "private": true,
   "peerDependencies": {
     "@angular/common": "^7.0.0",
     "@angular/core": "^7.0.0",
