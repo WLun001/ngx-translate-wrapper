@@ -1,4 +1,7 @@
 # NgxTranslateWrapper
+[![NPM](https://nodei.co/npm/ngx-translate-wrapper-lib.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/ngx-translate-wrapper-lib/)
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.3.
 
 This is a wrapper for [@ngx-translate](https://github.com/ngx-translate/core) library, please setup and install before using it. 
