@@ -1,3 +1,4 @@
 {
-  "EXAMPLE_MESSAGE" : "Hello {{name}}, today is {{date}}, your current balance is {{balance}}, there is {{people}} in the queue"
+  "EXAMPLE_MESSAGE" : "Hello {{name}}, today is {{date}}, your current balance is {{balance}}, there is {{people}} in the queue",
+  "TERMS_AND_CONDITIONS": "<strong>1.</strong> The Intellectual Property disclosure will inform users that the contents, logo and other visual media you created is your property and is protected by copyright laws.<br>2. A Termination clause will inform that users’ accounts on your website and mobile app or users’ access to your website and mobile (if users can’t have an account with you) can be terminated in case of abuses or at your sole discretion.\n3. A Governing Law will inform users which laws govern the agreement. This should the country in which your company is headquartered or the country from which you operate your website and mobile app."
 }

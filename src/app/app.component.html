@@ -8,9 +8,12 @@
 <h2>Here are some links to help you start: </h2>
 
 
-<i18n-ngx-wrapper [value]="numberOfPeople"
-      [type]="'number'"
-      [format]="{separators: false}"  ></i18n-ngx-wrapper>
+<button>
+  <i18n-ngx-wrapper [value]="numberOfPeople"
+                    [type]="'number'"
+                    [format]="{separators: false}"  ></i18n-ngx-wrapper>
+</button>
+
 <hr>
 
 <i18n-ngx-wrapper [value]="numberOfPeople"
@@ -25,4 +28,6 @@
    format: {currency: 'MYR'} },
   'people': {value: numberOfPeople, type: 'number', format: {separators: false}}
   }" ></i18n-ngx-wrapper>
+
+<i18n-ngx-wrapper [key]="'TERMS_AND_CONDITIONS'"></i18n-ngx-wrapper>
 

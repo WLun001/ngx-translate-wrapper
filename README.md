@@ -1,10 +1,21 @@
 # NgxTranslateWrapper
 [![NPM](https://nodei.co/npm/ngx-translate-wrapper-lib.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/ngx-translate-wrapper-lib/)
 
-
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.3.
 
 This is a wrapper for [@ngx-translate](https://github.com/ngx-translate/core) library, please setup and install before using it. 
+
+- [NgxTranslateWrapper](#ngxtranslatewrapper)
+  * [Examples Usage for `i18n-ngx-wrapper` component](#examples-usage-for--i18n-ngx-wrapper--component)
+    + [For format number](#for-format-number)
+    + [For format currency](#for-format-currency)
+    + [For normal text, where `data` can be resource key from json, variable or just `string`](#for-normal-text--where--data--can-be-resource-key-from-json--variable-or-just--string-)
+    + [Use in HTML tag](#use-in-html-tag)
+    + [For multiple parameters](#for-multiple-parameters)
+      - [with multiple formatting](#with-multiple-formatting)
+    + [Other available parameters for Date, Number and Currency](#other-available-parameters-for-date--number-and-currency)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
 
 ##  Examples Usage for `i18n-ngx-wrapper` component
@@ -32,6 +43,10 @@ This is a wrapper for [@ngx-translate](https://github.com/ngx-translate/core) li
  [type]="'currency'" ></i18n-ngx-wrapper>
  ```
  ### For normal text, where `data` can be resource key from json, variable or just `string`
+ New line character and HTML tag also will be interpreted.
+  
+ One concern for HTML tags interpretation is it might potentially caused cross-site scripting. The approach I used to enable new line characters and HTML tags interpretation is by binding variable into innerHTML, Angular recognises the value as unsafe and automatically sanitises it, which removes any <script> tag, but remains the content of it and will render other HTML tags. Read more on [Angular security](https://angular.io/guide/security)
+ 
  ```html
  <i18n-ngx-wrapper [key]="'ACCOUNT_SUMMARY_TITLE'"></i18n-ngx-wrapper>
  <i18n-ngx-wrapper [key]="'hello'"></i18n-ngx-wrapper>

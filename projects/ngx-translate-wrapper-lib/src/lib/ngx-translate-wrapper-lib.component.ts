@@ -1,12 +1,12 @@
 import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
-import {CurrencyFormat, DateFormat, KeyValue, NumberFormat, Options, TranslationStatus} from './types';
+import {CurrencyFormat, DateFormat, TranslatedPairs, NumberFormat, TranslationOptions, TranslationStatus} from './types';
 import {TranslateService} from '@ngx-translate/core';
 import {formatCurrencyLocale, formatDateLocale, formatNumberLocale} from './format-locale';
 
 @Component({
   selector: 'i18n-ngx-wrapper',
   template: `
-    {{ text }}
+      <div [innerHTML]="text | applyNewLine"></div>
   `,
   styles: []
 })
@@ -37,7 +37,7 @@ export class NgxTranslateWrapperLibComponent implements OnInit, OnChanges, Trans
     this.translationParams = params;
   }
 
-  translated(keyValue: KeyValue): void {
+  translated(keyValue: TranslatedPairs): void {
     this.translatedParams[keyValue.key] = keyValue.value;
     if (this.canComplete()) {
       this.onCompletion(this.key, this.translatedParams);
@@ -77,7 +77,7 @@ export class NgxTranslateWrapperLibComponent implements OnInit, OnChanges, Trans
           this.translated({'key': key, 'value': value});
         } else {
           // localisation for currency, number, date with options
-          const valueOption = value as Options;
+          const valueOption = value as TranslationOptions;
           let returnText: string | Promise<string>;
           returnText = this.getLocaleText(
             null, valueOption.value, valueOption.type, valueOption.format);

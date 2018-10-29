@@ -1,16 +1,16 @@
 interface TranslationStatus {
-  register: ((params: any[]) => void);
-  translated: ((value: any) => void);
-  canComplete: (() => boolean);
-  onCompletion: ((...data: any[]) => void);
+  register(params: any[]): void;
+  translated(value: any): void;
+  canComplete(): boolean;
+  onCompletion(...data: any[]): void;
 }
 
-export interface KeyValue {
+export interface TranslatedPairs {
   key: string;
   value: string;
 }
 
-export interface Options {
+export interface TranslationOptions {
   value: string;
   /**
    * possible values: 'currency', 'number', 'date'
