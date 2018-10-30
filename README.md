@@ -6,7 +6,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 This is a wrapper for [@ngx-translate](https://github.com/ngx-translate/core) library, please setup and install before using it. 
 
 - [NgxTranslateWrapper](#ngxtranslatewrapper)
-  * [Examples Usage for `i18n-ngx-wrapper` component](#examples-usage-for--i18n-ngx-wrapper--component)
+  * [Examples Usage for `i18n-ngx-wrapper` component](#examples-usage-for-i18n-ngx-wrapper-component)
     + [For format number](#for-format-number)
     + [For format currency](#for-format-currency)
     + [For normal text, where `data` can be resource key from json, variable or just `string`](#for-normal-text--where--data--can-be-resource-key-from-json--variable-or-just--string-)
