@@ -9,11 +9,11 @@ This is a wrapper for [@ngx-translate](https://github.com/ngx-translate/core) li
   * [Examples Usage for `i18n-ngx-wrapper` component](#examples-usage-for-i18n-ngx-wrapper-component)
     + [For format number](#for-format-number)
     + [For format currency](#for-format-currency)
-    + [For normal text, where `data` can be resource key from json, variable or just `string`](#for-normal-text--where--data--can-be-resource-key-from-json--variable-or-just--string-)
+    + [For normal text, where `data` can be resource key from json, variable or just `string`](#for-normal-text-where-data-can-be-resource-key-from-json-variable-or-just-string)
     + [Use in HTML tag](#use-in-html-tag)
     + [For multiple parameters](#for-multiple-parameters)
       - [with multiple formatting](#with-multiple-formatting)
-    + [Other available parameters for Date, Number and Currency](#other-available-parameters-for-date--number-and-currency)
+    + [Other available parameters for Date, Number and Currency](#other-available-parameters-for-date-number-and-currency)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
