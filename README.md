@@ -3,7 +3,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.3.
 
-This is a wrapper for [@ngx-translate](https://github.com/ngx-translate/core) library, please setup and install before using it. Then install with `npm i ngx-translate-wrapper-lib`
+This is a wrapper for [@ngx-translate](https://github.com/ngx-translate/core) library, please setup and install before using it.<br> Then install with `npm i ngx-translate-wrapper-lib`
 
 - [NgxTranslateWrapper](#ngxtranslatewrapper)
   * [Examples Usage for `i18n-ngx-wrapper` component](#examples-usage-for-i18n-ngx-wrapper-component)
