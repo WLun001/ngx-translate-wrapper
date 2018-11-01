@@ -94,24 +94,36 @@ export class NgxTranslateWrapperLibComponent implements OnInit, OnChanges, Trans
   }
 
   // only this function doesn't has side effect
-  getLocaleText(key?: string, value?: string, type?: string, formats?: CurrencyFormat | NumberFormat | DateFormat) {
-    if (value == undefined || value == null) {
-      console.error('variable cannot be null or undefined');
-      return null
-    }
+    getLocaleText(key?: string, value?: string, type?: string, formats?: CurrencyFormat | NumberFormat | DateFormat) {
     switch (type) {
       case 'number': {
+        if (this.checkValueNullOrUndefine(value)) {
+          console.error('variable cannot be null or undefined');
+          return null
+        }
         return formatNumberLocale(this.translate, value, formats as NumberFormat) as string;
       }
       case 'currency': {
+        if (this.checkValueNullOrUndefine(value)) {
+          console.error('variable cannot be null or undefined');
+          return null
+        }
         return formatCurrencyLocale(this.translate, value, formats as CurrencyFormat);
       }
       case 'date': {
+        if (this.checkValueNullOrUndefine(value)) {
+          console.error('variable cannot be null or undefined');
+          return null
+        }
         return formatDateLocale(this.translate, value, formats as DateFormat);
       }
       default: {
-        return this.translate.get(this.key).toPromise();
+        return this.translate.get(this.key).toPromise<string>();
       }
     }
+  }
+
+  checkValueNullOrUndefine(value: string) {
+    return value == undefined || value == null;
   }
 }
