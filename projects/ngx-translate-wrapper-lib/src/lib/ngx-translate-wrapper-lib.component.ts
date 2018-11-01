@@ -95,6 +95,10 @@ export class NgxTranslateWrapperLibComponent implements OnInit, OnChanges, Trans
 
   // only this function doesn't has side effect
   getLocaleText(key?: string, value?: string, type?: string, formats?: CurrencyFormat | NumberFormat | DateFormat) {
+    if (value == undefined || value == null) {
+      console.error('variable cannot be null or undefined');
+      return null
+    }
     switch (type) {
       case 'number': {
         return formatNumberLocale(this.translate, value, formats as NumberFormat) as string;
