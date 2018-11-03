@@ -113,7 +113,7 @@ export class NgxTranslateWrapperLibComponent implements OnInit, OnChanges, Trans
       case 'date': {
         if (this.checkValueNullOrUndefine(value)) {
           console.error('variable cannot be null or undefined');
-          return null
+          return null;
         }
         return formatDateLocale(this.translate, value, formats as DateFormat);
       }
