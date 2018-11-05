@@ -122,3 +122,5 @@ if we want to push the text to the right, we will need to access the property `d
   <i18n [key]="'ACCOUNT_SUMMARY_TITLE'"></i18n>
 </title>
 ```
+
+where `'LANGUAGE_DIRECTION'` is either `ltr` or `rtl` from JSON resource file
