@@ -110,7 +110,7 @@ However, `i18n` component is not support right to left language out of the box. 
 
 ```html
 <div>
-  <i18n [key]="'ACCOUNT_SUMMARY_TITLE'"></i18n>
+  <lib-i18n [key]="'ACCOUNT_SUMMARY_TITLE'"></lib-i18n>
 </div>
 ```
 
@@ -118,7 +118,7 @@ if we want to push the text to the right, we will need to access the property `d
 
 ```html
 <title dir="{{ 'LANGUAGE_DIRECTION' | translate }}">
-  <i18n [key]="'ACCOUNT_SUMMARY_TITLE'"></i18n>
+  <lib-i18n [key]="'ACCOUNT_SUMMARY_TITLE'"></lib-i18n>
 </title>
 ```
 
