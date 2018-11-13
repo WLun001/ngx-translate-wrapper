@@ -14,6 +14,7 @@ This is a wrapper for [@ngx-translate](https://github.com/ngx-translate/core) li
     + [For multiple parameters](#for-multiple-parameters)
       - [with multiple formatting](#with-multiple-formatting)
     + [Other available parameters for Date, Number and Currency](#other-available-parameters-for-date-number-and-currency)
+    + [Right to Left language support](#right-to-left-language-support)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
@@ -103,3 +104,22 @@ This is a wrapper for [@ngx-translate](https://github.com/ngx-translate/core) li
 
 ### Other available parameters for Date, Number and Currency
 - Other available parameters are documented in source code, [types.d.ts](https://github.com/WLun001/ngx-translate-wrapper/blob/master/projects/ngx-translate-wrapper-lib/src/lib/types.d.ts)
+
+### Right to Left language support
+However, `i18n` component is not support right to left language out of the box. Due to the limitation of accessing parent HTML. For example
+
+```html
+<div>
+  <i18n [key]="'ACCOUNT_SUMMARY_TITLE'"></i18n>
+</div>
+```
+
+if we want to push the text to the right, we will need to access the property `dir`  and set it to `rtl` from `<div>`, which is not appropriate to manipulate the parent HTML tag. Therefore, to make it compatible for right to left language, we can achieve with the following syntax with [@ngx-translate](https://github.com/ngx-translate/core) library
+
+```html
+<title dir="{{ 'LANGUAGE_DIRECTION' | translate }}">
+  <i18n [key]="'ACCOUNT_SUMMARY_TITLE'"></i18n>
+</title>
+```
+
+where `'LANGUAGE_DIRECTION'` is either `ltr` or `rtl` from JSON resource file
