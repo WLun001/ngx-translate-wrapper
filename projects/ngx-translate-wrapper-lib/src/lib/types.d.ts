@@ -1,7 +1,10 @@
 interface TranslationStatus {
   register(params: any[]): void;
+
   translated(value: any): void;
+
   canComplete(): boolean;
+
   onCompletion(...data: any[]): void;
 }
 
@@ -12,10 +15,7 @@ export interface TranslatedPairs {
 
 export interface TranslationOptions {
   value: string;
-  /**
-   * possible values: 'currency', 'number', 'date'
-   */
-  type?: string;
+  type?: 'currency' | 'number' | 'date';
   format?: CurrencyFormat | NumberFormat | DateFormat;
 }
 
@@ -34,7 +34,7 @@ export interface CurrencyFormat {
    * 'code - use the ISO currency code
    * 'name' - localized currency name such as "dollar"
    */
-  currencyDisplay?: string;
+  currencyDisplay?: 'symbol' | 'code' | 'name';
 
   /**
    *  Whether to use grouping separators, such as thousands separators or thousand/lakh/crore separators
@@ -44,10 +44,7 @@ export interface CurrencyFormat {
 }
 
 export interface NumberFormat {
-  /**
-   * Possible values: 'decimal', 'percent'
-   */
-  style?: string;
+  style?: 'decimal' | 'percent';
 
   /**
    *  Whether to use grouping separators, such as thousands separators or thousand/lakh/crore separators
@@ -70,49 +67,13 @@ export interface DateFormat {
    * Default values: true
    */
   hour12: boolean;
-
-  /**
-   * Possible values are "narrow", "short", "long"
-   */
-  weekday: string;
-
-  /**
-   * Possible values are "narrow", "short", "long".
-   */
-  era: string;
-
-  /**
-   * Possible values are "numeric", "2-digit".
-   */
-  year: string;
-
-  /**
-   * Possible values are "numeric", "2-digit", "narrow", "short", "long".
-   */
-  month: string;
-
-  /**
-   * Possible values are "numeric", "2-digit".
-   */
-  day: string;
-
-  /**
-   *  Possible values are "numeric", "2-digit".
-   */
-  hour: string;
-
-  /**
-   * Possible values are "numeric", "2-digit".
-   */
-  minute: string;
-
-  /**
-   * Possible values are "numeric", "2-digit".
-   */
-  second: string;
-
-  /**
-   * Possible values are "short", "long".
-   */
-  timeZoneName: string;
+  weekday: 'narrow' | 'short' | 'long';
+  era: 'narrow' | 'short' | 'long';
+  year: 'numeric' | '2-digit';
+  month: 'narrow' | 'short' | 'long' | 'numeric' | '2-digit';
+  day: 'numeric' | '2-digit';
+  hour: 'numeric' | '2-digit';
+  minute: 'numeric' | '2-digit';
+  second: 'numeric' | '2-digit';
+  timeZoneName: 'short' | 'long';
 }

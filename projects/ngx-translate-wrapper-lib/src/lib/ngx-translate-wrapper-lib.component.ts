@@ -1,12 +1,12 @@
 import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
-import {CurrencyFormat, DateFormat, TranslatedPairs, NumberFormat, TranslationOptions, TranslationStatus} from './types';
+import {CurrencyFormat, DateFormat, NumberFormat, TranslatedPairs, TranslationOptions, TranslationStatus} from './types';
 import {TranslateService} from '@ngx-translate/core';
 import {formatCurrencyLocale, formatDateLocale, formatNumberLocale} from './format-locale';
 
 @Component({
-  selector: 'i18n-ngx-wrapper',
+  selector: 'lib-i18n',
   template: `
-      <div [innerHTML]="text | applyNewLine"></div>
+    <div [innerHTML]="text | applyNewLine"></div>
   `,
   styles: []
 })
@@ -14,14 +14,13 @@ import {formatCurrencyLocale, formatDateLocale, formatNumberLocale} from './form
 /**
  * A component that wrap the ngx-translate library to provide localisation.
  * It can format text, date and currency according to locale.
- *
  */
 export class NgxTranslateWrapperLibComponent implements OnInit, OnChanges, TranslationStatus {
-  @Input('key') key: string;
-  @Input('value') value: string;
-  @Input('type') type: string;
-  @Input('format') format: CurrencyFormat | NumberFormat | DateFormat;
-  @Input('params') params: any;
+  @Input() key: string;
+  @Input() value: string;
+  @Input() type: string;
+  @Input() format: CurrencyFormat | NumberFormat | DateFormat;
+  @Input() params: any;
   text: string;
   translationParams = {};
   translatedParams = {};
@@ -60,7 +59,7 @@ export class NgxTranslateWrapperLibComponent implements OnInit, OnChanges, Trans
 
   doTranslation() {
     // single translation
-    if (this.params === undefined) {
+    if (!this.params) {
       let returnText: string | Promise<string>;
       returnText = this.getLocaleText(this.key, this.value, this.type, this.format);
       if (typeof returnText === 'string') {
@@ -94,24 +93,24 @@ export class NgxTranslateWrapperLibComponent implements OnInit, OnChanges, Trans
   }
 
   // only this function doesn't has side effect
-    getLocaleText(key?: string, value?: string, type?: string, formats?: CurrencyFormat | NumberFormat | DateFormat) {
+  getLocaleText(key?: string, value?: string, type?: string, formats?: CurrencyFormat | NumberFormat | DateFormat) {
     switch (type) {
       case 'number': {
-        if (this.checkValueNullOrUndefine(value)) {
+        if (!value) {
           console.error('variable cannot be null or undefined');
-          return null
+          return null;
         }
         return formatNumberLocale(this.translate, value, formats as NumberFormat) as string;
       }
       case 'currency': {
-        if (this.checkValueNullOrUndefine(value)) {
+        if (!value) {
           console.error('variable cannot be null or undefined');
-          return null
+          return null;
         }
         return formatCurrencyLocale(this.translate, value, formats as CurrencyFormat);
       }
       case 'date': {
-        if (this.checkValueNullOrUndefine(value)) {
+        if (!value) {
           console.error('variable cannot be null or undefined');
           return null;
         }
@@ -121,9 +120,5 @@ export class NgxTranslateWrapperLibComponent implements OnInit, OnChanges, Trans
         return this.translate.get(this.key).toPromise<string>();
       }
     }
-  }
-
-  checkValueNullOrUndefine(value: string) {
-    return value == undefined || value == null;
   }
 }

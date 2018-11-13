@@ -1,7 +1,8 @@
 {
   "name": "ngx-translate-wrapper-lib",
+  "readme": "https://github.com/WLun001/ngx-translate-wrapper/blob/master/README.md",
   "description": "A wrapper for ngx-translate library",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "keywords": ["angular", "ionic", "i18n",  "translate", "ngx-translate", "localisation"],
   "homepage": "https://github.com/WLun001/ngx-translate-wrapper",
   "author": "Wei Lun",
@@ -9,6 +10,10 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/WLun001/ngx-translate-wrapper.git"
+  },
+  "dependencies": {
+    "@ngx-translate/core": "^11.0.0",
+    "@ngx-translate/http-loader": "^4.0.0"
   },
   "peerDependencies": {
     "@angular/common": "^7.0.0",

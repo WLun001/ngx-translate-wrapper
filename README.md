@@ -6,7 +6,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 This is a wrapper for [@ngx-translate](https://github.com/ngx-translate/core) library, please setup and install before using it.<br> Then install with `npm i ngx-translate-wrapper-lib`
 
 - [NgxTranslateWrapper](#ngxtranslatewrapper)
-  * [Examples Usage for `i18n-ngx-wrapper` component](#examples-usage-for-i18n-ngx-wrapper-component)
+  * [Examples Usage for `lib-i18n` component](#examples-usage-for-lib-i18n-component)
     + [For format number](#for-format-number)
     + [For format currency](#for-format-currency)
     + [For normal text, where `data` can be resource key from json, variable or just `string`](#for-normal-text-where-data-can-be-resource-key-from-json-variable-or-just-string)
@@ -18,7 +18,7 @@ This is a wrapper for [@ngx-translate](https://github.com/ngx-translate/core) li
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
 
-##  Examples Usage for `i18n-ngx-wrapper` component
+##  Examples Usage for `lib-i18n` component
  When `format` is not specified, default values will be used as shown as below:
  - date: `26 October 2018` where the sequence will follow its locale
  - currency: `$120.95` where the separator will follow its locale, with 0 to 2 decimal places.
@@ -26,21 +26,21 @@ This is a wrapper for [@ngx-translate](https://github.com/ngx-translate/core) li
 
  ### For format number
  ```html
- <i18n-ngx-wrapper [value]="numberOfPeople"
+ <lib-i18n [value]="numberOfPeople"
  [type]="'number'"
- [format]="{separators: false}"  ></i18n-ngx-wrapper>
+ [format]="{separators: false}"  ></lib-i18n>
 
- <i18n-ngx-wrapper [value]="numberOfPeople"
- [type]="'number'"  ></i18n-ngx-wrapper>
+ <lib-i18n [value]="numberOfPeople"
+ [type]="'number'"  ></lib-i18n>
  ```
  ### For format currency
  ```html
- <i18n-ngx-wrapper [value]="balance"
+ <lib-i18n [value]="balance"
  [type]="'currency'"
- [format]="{currency: 'MYR'}" ></i18n-ngx-wrapper>
+ [format]="{currency: 'MYR'}" ></lib-i18n>
 
- <i18n-ngx-wrapper [value]="balance"
- [type]="'currency'" ></i18n-ngx-wrapper>
+ <lib-i18n [value]="balance"
+ [type]="'currency'" ></lib-i18n>
  ```
  ### For normal text, where `data` can be resource key from json, variable or just `string`
  New line character and HTML tag also will be interpreted.
@@ -48,38 +48,37 @@ This is a wrapper for [@ngx-translate](https://github.com/ngx-translate/core) li
  One concern for HTML tags interpretation is it might potentially caused cross-site scripting. The approach I used to enable new line characters and HTML tags interpretation is by binding variable into innerHTML, Angular recognises the value as unsafe and automatically sanitises it, which removes any <script> tag, but remains the content of it and will render other HTML tags. Read more on [Angular security](https://angular.io/guide/security)
  
  ```html
- <i18n-ngx-wrapper [key]="'ACCOUNT_SUMMARY_TITLE'"></i18n-ngx-wrapper>
- <i18n-ngx-wrapper [key]="'hello'"></i18n-ngx-wrapper>
+ <lib-i18n [key]="'ACCOUNT_SUMMARY_TITLE'"></lib-i18n>
+ <lib-i18n [key]="'hello'"></lib-i18n>
  ```
-
 
  ### Use in HTML tag
  ```html
- <button ion-button>
- <i18n-ngx-wrapper [key]="'ACCOUNT_SUMMARY_TITLE'"></i18n-ngx-wrapper>
+ <button>
+ <lib-i18n [key]="'ACCOUNT_SUMMARY_TITLE'"></lib-i18n>
  </button>
  ```
  ### For multiple parameters
 
  ```html
- <i18n-ngx-wrapper [key]="'EXAMPLE_MESSAGE'" [params]="{
+ <lib-i18n [key]="'EXAMPLE_MESSAGE'" [params]="{
   'name': 'John',
   'date': {value: today, type: 'date'},
   'balance': {value: balance, type: 'currency'},
   'people': {value: numberOfPeople, type: 'number'}
-  }" ></i18n-ngx-wrapper>
+  }" ></lib-i18n>
  ```
 
  #### with multiple formatting
 
  ```html
- <i18n-ngx-wrapper [key]="'EXAMPLE_MESSAGE'" [params]="{
+ <lib-i18n [key]="'EXAMPLE_MESSAGE'" [params]="{
   'name': 'John',
   'date': {value: today, type: 'date', format:{timeZoneName: 'short'}},
   'balance': {value: balance, type: 'currency',
    format: {currency: 'MYR'} },
   'people': {value: numberOfPeople, type: 'number', format: {separators: false}}
-  }" ></i18n-ngx-wrapper>
+  }" ></lib-i18n>
  ```
 
  To generate sentence like
@@ -90,10 +89,10 @@ This is a wrapper for [@ngx-translate](https://github.com/ngx-translate/core) li
  Assume locale is in MYR
 
  ```html
- <i18n-ngx-wrapper [key]="'EXAMPLE_MESSAGE'" [params]="{
+ <lib-i18n [key]="'EXAMPLE_MESSAGE'" [params]="{
 'name': 'John',
 'balance': {value: balance, type: 'currency'},
-'balance2': {value: balance, type: 'currency', format: {currency: 'USD'} }" ></i18n-ngx-wrapper>
+'balance2': {value: balance, type: 'currency', format: {currency: 'USD'} }" ></lib-i18n>
 ```
 
  where in the `json` file
