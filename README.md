@@ -110,14 +110,14 @@ We also can explicitly specify the language we wanted to localised with `lang` p
 
 - Automatically localised for date/currency/number format for the language
 - Please note that currency has to be specify in the resource json file
-```html
+```diff
 <lib-i18n [value]="numberOfPeople" 
 +         lang="fr"
           type="number"></lib-i18n>
 ``` 
 
 - The whole sentence will be localised to respective language including data/number/currency
-```html
+```diff
 <lib-i18n key="EXAMPLE_MESSAGE" [params]="{
   'name': 'John',
   'date': {value: today, type: 'date', format:{timeZoneName: 'short'}},
@@ -125,7 +125,7 @@ We also can explicitly specify the language we wanted to localised with `lang` p
    format: {currency: 'MYR'} },
   'people': {value: numberOfPeople, type: 'number', format: {separators: false}}
   }" 
-+ lang="fr">
++  lang="fr">
 </lib-i18n>
 ```
 
