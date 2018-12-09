@@ -2,6 +2,8 @@
 [![NPM](https://nodei.co/npm/ngx-translate-wrapper-lib.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/ngx-translate-wrapper-lib/)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.3.
+``
+*Readme might not display correctly on NPM, please read on Github*
 
 This is a wrapper for [@ngx-translate](https://github.com/ngx-translate/core) library, please setup and install before using it.<br> Then install with `npm i ngx-translate-wrapper-lib`
 
@@ -13,6 +15,7 @@ This is a wrapper for [@ngx-translate](https://github.com/ngx-translate/core) li
     + [Use in HTML tag](#use-in-html-tag)
     + [For multiple parameters](#for-multiple-parameters)
       - [with multiple formatting](#with-multiple-formatting)
+    + [Multilingual on same screen](#multilingual-on-same-screen)
     + [Other available parameters for Date, Number and Currency](#other-available-parameters-for-date-number-and-currency)
     + [Right to Left language support](#right-to-left-language-support)
 
@@ -28,20 +31,20 @@ This is a wrapper for [@ngx-translate](https://github.com/ngx-translate/core) li
  ### For format number
  ```html
  <lib-i18n [value]="numberOfPeople"
- [type]="'number'"
+ type="number"
  [format]="{separators: false}"  ></lib-i18n>
 
  <lib-i18n [value]="numberOfPeople"
- [type]="'number'"  ></lib-i18n>
+ type="number"  ></lib-i18n>
  ```
  ### For format currency
  ```html
  <lib-i18n [value]="balance"
- [type]="'currency'"
+ type="currency"
  [format]="{currency: 'MYR'}" ></lib-i18n>
 
  <lib-i18n [value]="balance"
- [type]="'currency'" ></lib-i18n>
+ type='currency' ></lib-i18n>
  ```
  ### For normal text, where `data` can be resource key from json, variable or just `string`
  New line character and HTML tag also will be interpreted.
@@ -49,20 +52,20 @@ This is a wrapper for [@ngx-translate](https://github.com/ngx-translate/core) li
  One concern for HTML tags interpretation is it might potentially caused cross-site scripting. The approach I used to enable new line characters and HTML tags interpretation is by binding variable into innerHTML, Angular recognises the value as unsafe and automatically sanitises it, which removes any <script> tag, but remains the content of it and will render other HTML tags. Read more on [Angular security](https://angular.io/guide/security)
  
  ```html
- <lib-i18n [key]="'ACCOUNT_SUMMARY_TITLE'"></lib-i18n>
- <lib-i18n [key]="'hello'"></lib-i18n>
+ <lib-i18n key="ACCOUNT_SUMMARY_TITLE"></lib-i18n>
+ <lib-i18n key="hello"></lib-i18n>
  ```
 
  ### Use in HTML tag
  ```html
  <button>
- <lib-i18n [key]="'ACCOUNT_SUMMARY_TITLE'"></lib-i18n>
+ <lib-i18n key="ACCOUNT_SUMMARY_TITLE"></lib-i18n>
  </button>
  ```
  ### For multiple parameters
 
  ```html
- <lib-i18n [key]="'EXAMPLE_MESSAGE'" [params]="{
+ <lib-i18n key="EXAMPLE_MESSAGE" [params]="{
   'name': 'John',
   'date': {value: today, type: 'date'},
   'balance': {value: balance, type: 'currency'},
@@ -73,7 +76,7 @@ This is a wrapper for [@ngx-translate](https://github.com/ngx-translate/core) li
  #### with multiple formatting
 
  ```html
- <lib-i18n [key]="'EXAMPLE_MESSAGE'" [params]="{
+ <lib-i18n key="EXAMPLE_MESSAGE" [params]="{
   'name': 'John',
   'date': {value: today, type: 'date', format:{timeZoneName: 'short'}},
   'balance': {value: balance, type: 'currency',
@@ -90,7 +93,7 @@ This is a wrapper for [@ngx-translate](https://github.com/ngx-translate/core) li
  Assume locale is in MYR
 
  ```html
- <lib-i18n [key]="'EXAMPLE_MESSAGE'" [params]="{
+ <lib-i18n key="EXAMPLE_MESSAGE" [params]="{
 'name': 'John',
 'balance': {value: balance, type: 'currency'},
 'balance2': {value: balance, type: 'currency', format: {currency: 'USD'} }" ></lib-i18n>
@@ -102,6 +105,26 @@ This is a wrapper for [@ngx-translate](https://github.com/ngx-translate/core) li
   "Hello {{name}}, it is {{date}},your current balance is {{balance}}, and there is {{people}} in the queue!",
 ```
 
+### Multilingual on same screen
+We also can explicitly specify the language we wanted to localised
+
+```html
+<lib-i18n [value]="numberOfPeople" 
++          lang="fr"
+          type="number"></lib-i18n>
+``` 
+
+```html
+<lib-i18n key="EXAMPLE_MESSAGE" [params]="{
+  'name': 'John',
+  'date': {value: today, type: 'date', format:{timeZoneName: 'short'}},
+  'balance': {value: balance, type: 'currency',
+   format: {currency: 'MYR'} },
+  'people': {value: numberOfPeople, type: 'number', format: {separators: false}}
+  }" 
+ + lang="fr"></lib-i18n>
+```
+
 ### Other available parameters for Date, Number and Currency
 - Other available parameters are documented in source code, [types.d.ts](https://github.com/WLun001/ngx-translate-wrapper/blob/master/projects/ngx-translate-wrapper-lib/src/lib/types.d.ts)
 
@@ -110,7 +133,7 @@ However, `i18n` component is not support right to left language out of the box. 
 
 ```html
 <div>
-  <i18n [key]="'ACCOUNT_SUMMARY_TITLE'"></i18n>
+  <i18n key="ACCOUNT_SUMMARY_TITLE"></i18n>
 </div>
 ```
 
