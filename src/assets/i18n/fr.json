@@ -1,0 +1,4 @@
+{
+  "DUMMY": "Bonjor",
+  "EXAMPLE_MESSAGE": "Bonjour {{name}}, nous sommes le {{date}}, votre solde actuel est de {{balance}}, il y a  {{people}} en attente"
+}

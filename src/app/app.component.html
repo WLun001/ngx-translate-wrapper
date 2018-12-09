@@ -11,18 +11,20 @@
 
 <button>
   <lib-i18n [value]="numberOfPeople"
-            [type]="'number'"
+            type="number"
             [format]="{separators: false}"></lib-i18n>
 </button>
 
 <hr>
-
+<h2>fr</h2>
+<lib-i18n [value]="numberOfPeople" lang="fr"
+          type="number"></lib-i18n>
+<h2>en</h2>
 <lib-i18n [value]="numberOfPeople"
-          [type]="'number'"></lib-i18n>
-
+          type="number"></lib-i18n>
 <hr>
 
-<lib-i18n [key]="'EXAMPLE_MESSAGE'" [params]="{
+<lib-i18n key="EXAMPLE_MESSAGE" [params]="{
   'name': 'John',
   'date': {value: today, type: 'date', format:{timeZoneName: 'short'}},
   'balance': {value: balance, type: 'currency',
@@ -30,5 +32,16 @@
   'people': {value: numberOfPeople, type: 'number', format: {separators: false}}
   }"></lib-i18n>
 
-<lib-i18n [key]="'TERMS_AND_CONDITIONS'"></lib-i18n>
+<lib-i18n key="EXAMPLE_MESSAGE" [params]="{
+  'name': 'John',
+  'date': {value: today, type: 'date', format:{timeZoneName: 'short'}},
+  'balance': {value: balance, type: 'currency',
+   format: {currency: 'MYR'} },
+  'people': {value: numberOfPeople, type: 'number', format: {separators: false}}
+  }" lang="fr"></lib-i18n>
+
+<lib-i18n key="TERMS_AND_CONDITIONS"></lib-i18n>
+
+<lib-i18n key="DUMMY" lang="fr"></lib-i18n>
+<lib-i18n key="DUMMY"></lib-i18n>
 

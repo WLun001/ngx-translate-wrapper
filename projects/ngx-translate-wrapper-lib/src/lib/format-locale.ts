@@ -3,19 +3,21 @@ import {CurrencyFormat, DateFormat, NumberFormat} from './types';
 
 /**
  * Get date format according to locale
- * @param translate {@link TranslateService} to pass in
+ * @param translate service {@link TranslateService} to pass in
  * @param value value to be localised
+ * @param lang explicit language to be used
  * @param format date specific format for localised
  */
-export function formatDateLocale(translate: TranslateService, value: string, format?: DateFormat) {
+export function formatDateLocale(translate: TranslateService, value: string, lang?: string, format?: DateFormat) {
   if (!value) {
     return null;
   }
 
+  const currentLang = lang ? lang : translate.getBrowserLang();
   if (format !== undefined) {
     return new Date(Number(value))
       .toLocaleDateString(
-        translate.getBrowserLang(), {
+        currentLang, {
           timeZone: format.timeZone,
           hour12: format.hour12,
           weekday: format.weekday,
@@ -31,7 +33,7 @@ export function formatDateLocale(translate: TranslateService, value: string, for
   } else {
     return new Date(Number(value))
       .toLocaleDateString(
-        translate.getBrowserLang(), {
+        currentLang, {
           year: 'numeric', month: 'long', day: 'numeric'
         });
   }
@@ -39,28 +41,29 @@ export function formatDateLocale(translate: TranslateService, value: string, for
 
 /**
  *
- * @param translate {@link TranslateService} to pass in
+ * @param translate service {@link TranslateService} to pass in
  * @param value value to be localised
+ * @param lang explicit language to be used
  * @param currencyFormat currency specific format for localised
  */
-export function formatCurrencyLocale(translate: TranslateService, value: string, currencyFormat?: CurrencyFormat) {
+export function formatCurrencyLocale(translate: TranslateService, value: string, lang?: string, currencyFormat?: CurrencyFormat) {
   if (!value) {
     return null;
   }
 
-  const lang: string = translate.getBrowserLang();
+  const currentLang = lang ? lang : translate.getBrowserLang();
   if (currencyFormat === undefined) {
     return new Promise<string>((resolve, reject) => {
       translate.get('CURRENCY').subscribe((currency: string) => {
         resolve(
-          Number(value).toLocaleString(lang, {
+          Number(value).toLocaleString(currentLang, {
             style: 'currency', currency: currency
           })
         );
       }, error => reject(error));
     });
   } else {
-    return Number(value).toLocaleString(lang, {
+    return Number(value).toLocaleString(currentLang, {
       style: 'currency',
       currency: currencyFormat.currency,
       currencyDisplay: currencyFormat.currencyDisplay,
@@ -79,20 +82,21 @@ export function removeCurrencySymbol(currency: string) {
 
 /**
  *
- * @param translate {@link TranslateService} to pass in
+ * @param translate service {@link TranslateService} to pass in
  * @param value value to be localised
+ * @param lang explicit language to be used
  * @param numberFormat specific number format for localised
  */
-export function formatNumberLocale(translate: TranslateService, value: string, numberFormat?: NumberFormat) {
+export function formatNumberLocale(translate: TranslateService, value: string, lang?: string, numberFormat?: NumberFormat) {
   if (!value) {
     return null;
   }
 
-  const lang: string = translate.getBrowserLang();
+  const currentLang = lang ? lang : translate.getBrowserLang();
   if (!numberFormat) {
-    return Number(value).toLocaleString(lang);
+    return Number(value).toLocaleString(currentLang);
   } else {
-    return Number(value).toLocaleString(lang, {
+    return Number(value).toLocaleString(currentLang, {
       style: numberFormat.style,
       useGrouping: numberFormat.separators
     });
