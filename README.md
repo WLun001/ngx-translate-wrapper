@@ -2,8 +2,8 @@
 [![NPM](https://nodei.co/npm/ngx-translate-wrapper-lib.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/ngx-translate-wrapper-lib/)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.3.
-``
-*Readme might not display correctly on NPM, please read on Github*
+
+**Readme might not display correctly on NPM, please read on Github**
 
 This is a wrapper for [@ngx-translate](https://github.com/ngx-translate/core) library, please setup and install before using it.<br> Then install with `npm i ngx-translate-wrapper-lib`
 
@@ -106,14 +106,17 @@ This is a wrapper for [@ngx-translate](https://github.com/ngx-translate/core) li
 ```
 
 ### Multilingual on same screen
-We also can explicitly specify the language we wanted to localised
+We also can explicitly specify the language we wanted to localised with `lang` property
 
+- Automatically localised for date/currency/number format for the language
+- Please note that currency has to be specify in the resource json file
 ```html
 <lib-i18n [value]="numberOfPeople" 
-+          lang="fr"
++         lang="fr"
           type="number"></lib-i18n>
 ``` 
 
+- The whole sentence will be localised to respective language including data/number/currency
 ```html
 <lib-i18n key="EXAMPLE_MESSAGE" [params]="{
   'name': 'John',
@@ -122,7 +125,8 @@ We also can explicitly specify the language we wanted to localised
    format: {currency: 'MYR'} },
   'people': {value: numberOfPeople, type: 'number', format: {separators: false}}
   }" 
- + lang="fr"></lib-i18n>
++ lang="fr">
+</lib-i18n>
 ```
 
 ### Other available parameters for Date, Number and Currency
