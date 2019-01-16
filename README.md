@@ -1,8 +1,8 @@
 # NgxTranslateWrapper
-[![NPM](https://nodei.co/npm/ngx-translate-wrapper-lib.png?downloads=true&downloadRank=true&stars=true)]
-(https://nodei.co/npm/ngx-translate-wrapper-lib/)
+[![NPM](https://nodei.co/npm/ngx-translate-wrapper-lib.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/ngx-translate-wrapper-lib/)
 
 ![](https://img.shields.io/npm/dt/ngx-translate-wrapper-lib.svg?style=for-the-badge)
+![](https://img.shields.io/npm/dm/ngx-translate-wrapper-lib.svg?style=for-the-badge)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.3.
 
